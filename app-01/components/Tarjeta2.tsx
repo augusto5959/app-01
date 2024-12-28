@@ -22,7 +22,11 @@ export default function Tarjeta2(props: any) {
 					<Text style={styles.txtNombre}>
 						{props.datos.name.first} {props.datos.name.last}
 					</Text>
-                    <Image style={styles.img} source={{uri:props.datos.images.main}}/>
+					<View style={styles.fila}>
+						<Image style={styles.img} source={{ uri: props.datos.images.main }} />
+						<Text>{props.datos.occupation}</Text>
+					</View>
+
 					<Button title='Cerrar' onPress={() => setVisible(false)} />
 				</View>
 			</Modal>
@@ -32,20 +36,26 @@ export default function Tarjeta2(props: any) {
 
 const styles = StyleSheet.create({
 	txtNombre: {
-		fontSize: 30,
+		fontSize: 40,
+		justifyContent:'center',
+		textAlign:'center'
 	},
 	container: {
 		backgroundColor: '#ecc1ac',
 		margin: 2,
 		borderRadius: 20,
+		gap:10,
 	},
 	modal: {
 		backgroundColor: '#adadad',
 		flex: 1,
 	},
-    img:{
-        width:'50%',
-        height:'50%',
-        resizeMode:'contain'
-    }
+	img: {
+		width: 200,
+		height: 200,
+		resizeMode: 'contain',
+	},
+	fila:{
+		flexDirection:'row'
+	}
 });
